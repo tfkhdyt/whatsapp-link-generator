@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { Tooltip, Button, Heading, P, Label, Textarea, List, Li, A } from 'flowbite-svelte';
 	import { flip } from 'svelte/animate';
-	import { fade, slide } from 'svelte/transition';
+	import { fade } from 'svelte/transition';
 	import SvelteSeo from 'svelte-seo';
 
 	import { copyAll, copyLink } from '$lib/clipboard';
@@ -27,14 +27,12 @@
 <Heading tag="h3" class="mb-6">WhatsApp Link Generator</Heading>
 <Label defaultClass="mb-2 font-bold block">WhatsApp Numbers:</Label>
 {#each $phoneNumbers as _, index ($phoneNumbers[index].id)}
-	<div class="flex mr-2 mb-2 space-x-2 w-full" transition:slide|local>
-		<PhoneNumber
-			bind:value={$phoneNumbers[index].value}
-			bind:valid={$phoneNumbers[index].valid}
-			{numOfPhone}
-			id={$phoneNumbers[index].id}
-		/>
-	</div>
+	<PhoneNumber
+		bind:value={$phoneNumbers[index].value}
+		bind:valid={$phoneNumbers[index].valid}
+		{numOfPhone}
+		id={$phoneNumbers[index].id}
+	/>
 {/each}
 
 <Button color="alternative" class="mb-6" on:click={addField}>
