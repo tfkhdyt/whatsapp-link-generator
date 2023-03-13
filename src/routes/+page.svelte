@@ -5,7 +5,7 @@
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
 
 	function addField() {
-		$phoneNumbers = [...$phoneNumbers, { id: $idIncrement, value: '' }];
+		$phoneNumbers = [...$phoneNumbers, { id: $idIncrement, value: '', valid: true }];
 		$idIncrement++;
 	}
 
@@ -17,11 +17,14 @@
 </script>
 
 <main>
-	<h1 class="mb-2 text-3xl font-bold">WhatsApp Link Generator</h1>
+	<h1 class="mb-6 text-3xl font-bold">WhatsApp Link Generator</h1>
 	<p class="mb-2 font-bold">WhatsApp Numbers</p>
 	{#each $phoneNumbers as _, index ($phoneNumbers[index].id)}
 		<div class="flex">
-			<PhoneNumber bind:value={$phoneNumbers[index].value} />
+			<PhoneNumber
+				bind:value={$phoneNumbers[index].value}
+				bind:valid={$phoneNumbers[index].valid}
+			/>
 
 			{#if numOfPhone > 1}
 				<button
@@ -50,7 +53,7 @@
 
 	<button
 		type="button"
-		class="flex py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-600 hover:text-blue-700 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:focus:ring-gray-700 dark:hover:text-white dark:hover:bg-gray-700"
+		class="flex py-2.5 px-5 mr-2 mb-6 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-600 hover:text-blue-700 hover:bg-gray-100 focus:z-10 focus:ring-4 focus:ring-gray-200 focus:outline-none dark:focus:ring-gray-700 dark:hover:text-white dark:hover:bg-gray-700"
 		on:click={addField}
 	>
 		<svg
@@ -65,4 +68,6 @@
 		</svg>
 		Add number
 	</button>
+
+	<p class="mb-2 font-bold">Message</p>
 </main>
