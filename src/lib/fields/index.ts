@@ -5,7 +5,7 @@ export function addField() {
 	const unsubscribe = idIncrement.subscribe((value) => (_idIncrement = value));
 
 	phoneNumbers.update((num) => [...num, { id: _idIncrement, value: '', valid: true }]);
-	idIncrement.update((value) => value++);
+	idIncrement.update((value) => value + 1);
 
 	unsubscribe();
 }
