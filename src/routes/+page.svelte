@@ -19,6 +19,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>WhatsApp Link Generator | tfkhdyt</title>
+</svelte:head>
+
 <Heading tag="h3" class="mb-6">WhatsApp Link Generator</Heading>
 <Label defaultClass="mb-2 font-bold block">WhatsApp Numbers:</Label>
 {#each $phoneNumbers as _, index ($phoneNumbers[index].id)}
