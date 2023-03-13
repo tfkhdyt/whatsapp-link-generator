@@ -2,7 +2,9 @@
 	import PhoneNumber from '../lib/components/PhoneNumber.svelte';
 	import { idIncrement, phoneNumbers } from '../stores/phoneNumber';
 
+	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
+	$: numOfValidNumber = $phoneNumbers.filter((num) => num.valid).length;
 
 	function addField() {
 		$phoneNumbers = [...$phoneNumbers, { id: $idIncrement, value: '', valid: true }];
@@ -14,6 +16,7 @@
 	}
 
 	$: console.log($phoneNumbers);
+	$: console.log(message);
 </script>
 
 <main>
@@ -69,5 +72,31 @@
 		Add number
 	</button>
 
-	<p class="mb-2 font-bold">Message</p>
+	<label for="message" class="block mb-2 font-bold text-gray-900 dark:text-white text-md"
+		>Message</label
+	>
+	<textarea
+		id="message"
+		rows="4"
+		class="block p-2.5 mb-6 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 lg:w-3/6 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 text-md dark:focus:ring-blue-500 dark:focus:border-blue-500"
+		placeholder="Assalamu'alaikum Wr. Wb."
+		bind:value={message}
+	/>
+
+	{#if numOfValidNumber > 0}
+		<p class="mb-2 font-bold">Result</p>
+		<ul class="space-y-1 max-w-md list-disc list-inside text-gray-500 dark:text-gray-400">
+			{#each $phoneNumbers.filter((num) => num.valid) as number}
+				<li>
+					<a
+						href="https://wa.me/{number.value.replace('+', '')}?text={encodeURI(message)}"
+						target="_blank"
+						class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+					>
+						wa.me/{number.value.replace('+', '')}
+					</a>
+				</li>
+			{/each}
+		</ul>
+	{/if}
 </main>
