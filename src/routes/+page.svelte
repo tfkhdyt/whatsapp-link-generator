@@ -6,18 +6,13 @@
 
 	import PhoneNumber from '$lib/components/PhoneNumber.svelte';
 	import { addField, removeField } from '$lib/fields';
+	import { formatLink } from '$lib/format';
 	import { phoneNumbers } from '../stores/phoneNumber';
 	import type { PhoneNumberType } from '../types/PhoneNumber';
 
 	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
 	$: showResult = $phoneNumbers.filter((num) => num.valid && num.value !== '').length > 0;
-
-	function formatLink(number: PhoneNumberType, message: string) {
-		return `https://wa.me/${number.value.replace('+', '')}${
-			message.trim() ? `?text=${encodeURI(message.trim())}` : ''
-		}`;
-	}
 
 	function copyLink(number: PhoneNumberType, message: string) {
 		navigator.clipboard.writeText(formatLink(number, message));
