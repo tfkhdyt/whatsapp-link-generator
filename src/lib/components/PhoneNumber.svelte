@@ -11,7 +11,7 @@
 	let selectedCountry: CountryCode = 'ID';
 </script>
 
-<div class="flex mr-2 mb-2 space-x-2">
+<div class="flex mr-2 mb-2 space-x-2 w-full lg:w-3/6">
 	<select
 		class="block p-2.5 w-5/12 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 md:w-2/6 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 text-md dark:focus:ring-blue-500 dark:focus:border-blue-500"
 		aria-label="Default select example"
