@@ -4,7 +4,7 @@
 
 	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
-	$: numOfValidNumber = $phoneNumbers.filter((num) => num.valid).length;
+	$: showResult = $phoneNumbers.filter((num) => num.valid && num.value !== '').length > 0;
 
 	function addField() {
 		$phoneNumbers = [...$phoneNumbers, { id: $idIncrement, value: '', valid: true }];
@@ -14,9 +14,6 @@
 	function removeField(id: number) {
 		$phoneNumbers = $phoneNumbers.filter((num) => num.id !== id);
 	}
-
-	$: console.log($phoneNumbers);
-	$: console.log(message);
 </script>
 
 <main>
@@ -83,7 +80,7 @@
 		bind:value={message}
 	/>
 
-	{#if numOfValidNumber > 0}
+	{#if showResult}
 		<p class="mb-2 font-bold">Result</p>
 		<ul class="space-y-1 max-w-md list-disc list-inside text-gray-500 dark:text-gray-400">
 			{#each $phoneNumbers.filter((num) => num.valid) as number}
