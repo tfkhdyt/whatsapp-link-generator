@@ -4,33 +4,15 @@
 	import { fade, slide } from 'svelte/transition';
 	import SvelteSeo from 'svelte-seo';
 
+	import { copyAll, copyLink } from '$lib/clipboard';
 	import PhoneNumber from '$lib/components/PhoneNumber.svelte';
 	import { addField, removeField } from '$lib/fields';
 	import { formatLink } from '$lib/format';
 	import { phoneNumbers } from '../stores/phoneNumber';
-	import type { PhoneNumberType } from '../types/PhoneNumber';
 
 	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
 	$: showResult = $phoneNumbers.filter((num) => num.valid && num.value !== '').length > 0;
-
-	function copyLink(number: PhoneNumberType, message: string) {
-		navigator.clipboard.writeText(formatLink(number, message));
-	}
-
-	function copyAll() {
-		const phones = $phoneNumbers
-			.filter((num) => num.valid && num.value !== '')
-			.map(
-				(num) =>
-					`https://wa.me/${num.value.replace('+', '')}${
-						message.trim() ? `?text=${encodeURI(message.trim())}` : ''
-					}`
-			)
-			.join('\n');
-
-		navigator.clipboard.writeText(phones);
-	}
 </script>
 
 <svelte:head>
@@ -131,7 +113,7 @@
 		{/each}
 	</List>
 
-	<Button id="copyAll" outline pill={true} size="xs" on:click={copyAll}>
+	<Button id="copyAll" outline pill={true} size="xs" on:click={() => copyAll(message)}>
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			fill="none"
