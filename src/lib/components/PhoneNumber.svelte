@@ -37,7 +37,7 @@
 	bind:value={selectedCountry}
 >
 	<option value={null} hidden={selectedCountry !== null}>Please select</option>
-	{#each normalizedCountries as country (country.id)}
+	{#each normalizedCountries.filter((country) => country.dialCode !== '972') as country (country.id)}
 		<option
 			value={country.iso2}
 			selected={country.iso2 === selectedCountry}
