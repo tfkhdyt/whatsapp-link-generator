@@ -1,24 +1,17 @@
 <script lang="ts">
 	import { Tooltip, Button, Heading, P, Label, Textarea, List, Li, A } from 'flowbite-svelte';
-	import SvelteSeo from 'svelte-seo';
 	import { flip } from 'svelte/animate';
 	import { fade, slide } from 'svelte/transition';
-	import PhoneNumber from '../lib/components/PhoneNumber.svelte';
-	import { idIncrement, phoneNumbers } from '../stores/phoneNumber';
+	import SvelteSeo from 'svelte-seo';
+
+	import PhoneNumber from '$lib/components/PhoneNumber.svelte';
+	import { addField, removeField } from '$lib/fields';
+	import { phoneNumbers } from '../stores/phoneNumber';
 	import type { PhoneNumberType } from '../types/PhoneNumber';
 
 	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
 	$: showResult = $phoneNumbers.filter((num) => num.valid && num.value !== '').length > 0;
-
-	function addField() {
-		$phoneNumbers = [...$phoneNumbers, { id: $idIncrement, value: '', valid: true }];
-		$idIncrement++;
-	}
-
-	function removeField(id: number) {
-		$phoneNumbers = $phoneNumbers.filter((num) => num.id !== id);
-	}
 
 	function formatLink(number: PhoneNumberType, message: string) {
 		return `https://wa.me/${number.value.replace('+', '')}${
