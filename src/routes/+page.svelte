@@ -19,7 +19,7 @@
 
 <main>
 	<Heading tag="h3" class="mb-6">WhatsApp Link Generator</Heading>
-	<Label defaultClass="mb-2 font-bold block">WhatsApp Numbers</Label>
+	<Label defaultClass="mb-2 font-bold block">WhatsApp Numbers:</Label>
 	{#each $phoneNumbers as _, index ($phoneNumbers[index].id)}
 		<div class="flex mr-2 mb-2 space-x-2 w-full lg:w-3/6">
 			<PhoneNumber
@@ -62,7 +62,7 @@
 		Add number
 	</Button>
 
-	<Label for="message" defaultClass="mb-2 font-bold block">Message</Label>
+	<Label for="message" defaultClass="mb-2 font-bold block">Message:</Label>
 	<Textarea
 		id="message"
 		rows="4"
