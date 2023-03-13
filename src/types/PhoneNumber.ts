@@ -1,4 +1,5 @@
 export type PhoneNumberType = {
 	id: number;
-	value: string | null;
+	value: string;
+	valid: boolean;
 };
