@@ -32,7 +32,7 @@
 </script>
 
 <select
-	class="block p-2.5 w-3/6 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
+	class="block p-2.5 w-2/6 text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 dark:focus:ring-blue-500 dark:focus:border-blue-500"
 	name="Country"
 	bind:value={selectedCountry}
 >
@@ -53,6 +53,6 @@
 	bind:country={selectedCountry}
 	bind:value
 	bind:valid
-	class="block p-2.5 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 text-sm dark:focus:ring-blue-500 dark:focus:border-blue-500 {!valid &&
+	class="block p-2.5 w-4/6 text-gray-900 bg-gray-50 rounded-lg border border-gray-300 dark:placeholder-gray-400 dark:text-white dark:bg-gray-700 dark:border-gray-600 focus:border-blue-500 focus:ring-blue-500 text-sm dark:focus:ring-blue-500 dark:focus:border-blue-500 {!valid &&
 		'bg-red-50 border-red-500 text-red-900 focus:ring-red-500 focus:border-red-500 dark:focus:ring-red-500 dark:focus:border-red-500 dark:text-red-500 dark:placeholder-red-500 dark:border-red-500'}"
 />
