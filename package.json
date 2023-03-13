@@ -34,7 +34,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"country-code-to-flag-emoji": "^1.2.1",
 		"svelte-tel-input": "^1.3.2"
 	}
 }

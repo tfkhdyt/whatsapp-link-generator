@@ -6,7 +6,6 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.45.0
   '@typescript-eslint/parser': ^5.45.0
   autoprefixer: ^10.4.14
-  country-code-to-flag-emoji: ^1.2.1
   eslint: ^8.28.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -24,7 +23,6 @@ specifiers:
   vite: ^4.0.0
 
 dependencies:
-  country-code-to-flag-emoji: 1.2.1
   svelte-tel-input: 1.3.2
 
 devDependencies:
@@ -755,10 +753,6 @@ packages:
     resolution: {integrity: sha512-YZ3GUyn/o8gfKJlnlX7g7xq4gyO6OSuhGPKaaGssGB2qgDUS0gPgtTvoyZLTt9Ab6dC4hfc9dV5arkvc/OCmrw==}
     engines: {node: '>= 0.6'}
     dev: true
-
-  /country-code-to-flag-emoji/1.2.1:
-    resolution: {integrity: sha512-ppwftXwQubKUz4M3C15y5dgmimzcsHrJILbPaEgRfvhuwm7zaSidO4sFP4gSFSLj0En78y0L9FErZwZiUAYXog==}
-    dev: false
 
   /cross-spawn/7.0.3:
     resolution: {integrity: sha512-iRDPJKUPVEND7dHPO8rkbOnPpyDygcDFtWjpeWNCgy8WP2rXcxXL8TskReQl6OrB2G7+UJrags1q15Fudc7G6w==}
