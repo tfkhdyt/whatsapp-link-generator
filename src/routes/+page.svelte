@@ -87,7 +87,9 @@
 			<span transition:fade animate:flip>
 				<Li class="mb-2">
 					<A
-						href="https://wa.me/{number.value.replace('+', '')}?text={encodeURI(message)}"
+						href={`https://wa.me/${number.value.replace('+', '')}${
+							message.trim() ? `?text=${encodeURI(message.trim())}` : ''
+						}`}
 						target="_blank"
 						class="mr-2 font-medium"
 					>
@@ -100,7 +102,9 @@
 						size="xs"
 						on:click={async () =>
 							await navigator.clipboard.writeText(
-								`https://wa.me/${number.value.replace('+', '')}?text=${encodeURI(message)}`
+								`https://wa.me/${number.value.replace('+', '')}${
+									message.trim() ? `?text=${encodeURI(message.trim())}` : ''
+								}`
 							)}
 					>
 						<svg
