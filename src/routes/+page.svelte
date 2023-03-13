@@ -5,8 +5,8 @@
 	import SvelteSeo from 'svelte-seo';
 
 	import { copyAll, copyLink } from '$lib/clipboard';
+	import AddFieldButton from '$lib/components/Buttons/AddFieldButton.svelte';
 	import PhoneNumber from '$lib/components/PhoneNumber.svelte';
-	import { addField } from '$lib/fields';
 	import { formatLink } from '$lib/format';
 	import { phoneNumbers } from '../stores/phoneNumber';
 
@@ -35,19 +35,7 @@
 	/>
 {/each}
 
-<Button color="alternative" class="mb-6" on:click={addField}>
-	<svg
-		xmlns="http://www.w3.org/2000/svg"
-		fill="none"
-		viewBox="0 0 24 24"
-		stroke-width="1.5"
-		stroke="currentColor"
-		class="mr-2 w-5 h-5"
-	>
-		<path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
-	</svg>
-	Add number
-</Button>
+<AddFieldButton />
 
 <Label for="message" defaultClass="mb-2 font-bold block">Message:</Label>
 <Textarea
