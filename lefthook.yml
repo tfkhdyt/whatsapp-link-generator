@@ -2,7 +2,7 @@ pre-commit:
   commands:
     format:
       glob: '*.{ts,svelte,css}'
-      run: pnpm prettier -w {staged_files}
+      run: pnpm prettier --plugin-search-dir . -cw {staged_files}
     lint:
       glob: '*.{ts,svelte}'
       run: pnpm eslint --fix {staged_files}
@@ -11,8 +11,8 @@ pre-push:
   commands:
     format:
       glob: '*.{ts,svelte,css}'
-      run: pnpm prettier -w {all_files}
+      run: pnpm prettier --plugin-search-dir . -cw {all_files}
     lint:
       glob: '*.{ts,svelte}'
-      run: pnpm eslint --fix {staged_files}
+      run: pnpm eslint --fix {all_files}
   parallel: true
