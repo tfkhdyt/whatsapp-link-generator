@@ -1,0 +1,8 @@
+pre-commit:
+  commands:
+    format:
+      run: pnpm prettier -w {staged_files}
+    lint:
+      glob: '*.{ts,svelte}'
+      run: pnpm eslint {staged_files}
+  parallel: true
