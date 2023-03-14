@@ -11,8 +11,8 @@ pre-push:
   commands:
     format:
       glob: '*.{ts,svelte,css}'
-      run: pnpm prettier --plugin-search-dir . -w {all_files}
+      run: pnpm prettier --plugin-search-dir . -w {push_files}
     lint:
       glob: '*.{ts,svelte}'
-      run: pnpm eslint --fix {all_files}
+      run: pnpm eslint --fix {push_files}
   parallel: true
