@@ -1,11 +1,12 @@
 <script lang="ts">
-	import { Heading, P, Label, Textarea, A } from 'flowbite-svelte';
+	import { Heading, Label, Textarea } from 'flowbite-svelte';
 	import SvelteSeo from 'svelte-seo';
 
 	import AddFieldButton from '$lib/components/Buttons/AddFieldButton.svelte';
+	import Footer from '$lib/components/Footer.svelte';
 	import PhoneNumber from '$lib/components/PhoneNumber.svelte';
-	import { phoneNumbers } from '../stores/phoneNumber';
 	import Result from '$lib/components/Result.svelte';
+	import { phoneNumbers } from '../stores/phoneNumber';
 
 	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;
@@ -48,9 +49,4 @@
 	<Result {message} />
 {/if}
 
-<P align="center" weight="light" class="mt-6">
-	Created by <A class="font-semibold" href="https://tfkhdyt.my.id" target="_blank">tfkhdyt</A> |
-	<A class="font-semibold" href="https://github.com/tfkhdyt/whatsapp-link-generator" target="_blank"
-		>Source Code</A
-	>
-</P>
+<Footer />
