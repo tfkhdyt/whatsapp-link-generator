@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { PhoneNumberType } from '../types/PhoneNumber';
+import type { PhoneNumberType } from '$types/PhoneNumber';
 
 export const phoneNumbers = writable<PhoneNumberType[]>([
 	{

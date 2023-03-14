@@ -3,10 +3,10 @@
 	import { flip } from 'svelte/animate';
 	import { fade } from 'svelte/transition';
 
+	import CopyAllButton from './Buttons/CopyAllButton.svelte';
 	import CopyLinkButton from './Buttons/CopyLinkButton.svelte';
 	import { formatLink } from '$lib/format';
-	import { phoneNumbers } from '../../stores/phoneNumber';
-	import CopyAllButton from './Buttons/CopyAllButton.svelte';
+	import { phoneNumbers } from '$stores/phoneNumber';
 
 	export let message: string;
 	$: validNumber = $phoneNumbers.filter((num) => num.valid && num.value !== '');

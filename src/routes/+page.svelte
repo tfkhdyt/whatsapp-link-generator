@@ -6,7 +6,7 @@
 	import Footer from '$lib/components/Footer.svelte';
 	import PhoneNumber from '$lib/components/PhoneNumber.svelte';
 	import Result from '$lib/components/Result.svelte';
-	import { phoneNumbers } from '../stores/phoneNumber';
+	import { phoneNumbers } from '$stores/phoneNumber';
 
 	let message = '';
 	$: numOfPhone = $phoneNumbers.length > 1 ? $phoneNumbers.length : 1;

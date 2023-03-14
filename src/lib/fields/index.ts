@@ -1,4 +1,4 @@
-import { idIncrement, phoneNumbers } from '../../stores/phoneNumber';
+import { idIncrement, phoneNumbers } from '$stores/phoneNumber';
 
 export function addField() {
 	let _idIncrement: number;

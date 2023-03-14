@@ -1,6 +1,6 @@
 import { formatLink } from '$lib/format';
-import { phoneNumbers } from '../../stores/phoneNumber';
-import type { PhoneNumberType } from '../../types/PhoneNumber';
+import { phoneNumbers } from '$stores/phoneNumber';
+import type { PhoneNumberType } from '$types/PhoneNumber';
 
 export function copyLink(number: PhoneNumberType, message: string) {
 	navigator.clipboard.writeText(formatLink(number, message));

@@ -2,7 +2,7 @@
 	import { Button, Tooltip } from 'flowbite-svelte';
 
 	import { copyLink } from '$lib/clipboard';
-	import type { PhoneNumberType } from '../../../types/PhoneNumber';
+	import type { PhoneNumberType } from '$types/PhoneNumber';
 
 	export let id: string;
 	export let number: PhoneNumberType;
