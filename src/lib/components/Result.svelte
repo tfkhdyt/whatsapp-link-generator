@@ -15,7 +15,7 @@
 <P class="mt-6" weight="bold">Result:</P>
 <List tag="ol" list="decimal">
 	{#each validNumber as number (number.id)}
-		<span transition:fade animate:flip>
+		<span in:fade animate:flip>
 			<Li class="mb-2">
 				<A href={formatLink(number, message)} target="_blank" class="mr-2 font-medium">
 					wa.me/{number.value.replace('+', '')}
