@@ -22,9 +22,9 @@ Web app to generate WhatsApp contact link with default message easily
 
 ## Preview
 
-![./static/screenshot-1.png](Screenshot 1)
+![Screenshot 1](./static/screenshot-1.png)
 
-![./static/screenshot-2.png](Screenshot 2)
+![Screenshot 2](./static/screenshot-2.png)
 
 ## Getting Started
 
